@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#071011">
+<meta name="description" content="MedVault: gestor local de notas privadas de demostración.">
+<title>MedVault — Notas privadas</title>
+<link rel="icon" type="image/png" href="medvault-logo.png">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <header class="brand"><img src="medvault-logo.png" alt="Logotipo MedVault"><div><p class="eyebrow">ARCHIVO PERSONAL</p><h1>Med<span>Vault</span></h1><small>NOTAS PRIVADAS</small></div></header>
+    <button class="primary new-note" id="newNoteButton">＋ Nueva nota</button>
+    <label class="field-label" for="searchInput">Buscar notas</label>
+    <div class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Título o contenido…" autocomplete="off"></div>
+    <section class="tag-section"><div class="section-heading"><h2>Filtrar por etiquetas</h2><button class="link-button" id="clearTagFilter">Limpiar</button></div><div id="tagFilters" class="tag-filters"></div></section>
+    <div class="local-status"><i></i><div><b>Almacenamiento local</b><small>Este navegador · Sin cuenta</small></div></div>
+  </aside>
+  <section class="notes-panel">
+    <header class="notes-header"><div><p class="eyebrow">TU ARCHIVO</p><h2>Notas y expedientes</h2><p id="notesCount" class="muted">0 notas</p></div><button class="mobile-add" id="mobileNewNoteButton" aria-label="Nueva nota">＋</button></header>
+    <div class="sort-row"><span>Ordenadas por última edición</span><span>↕</span></div>
+    <div id="notesList" class="notes-list" aria-live="polite"></div>
+    <footer class="notes-footer"><i></i> Los datos permanecen en este navegador</footer>
+  </section>
+  <main class="editor-panel"><div id="editorContent"></div></main>
+</div>
+<div id="toastRegion" class="toast-region" role="status" aria-live="polite"></div>
+<dialog id="deleteDialog"><form method="dialog"><div class="alert-icon">!</div><h2>Eliminar esta nota</h2><p>Esta acción no se puede deshacer. Exporta un respaldo antes si necesitas conservarla.</p><div class="dialog-actions"><button class="quiet" value="cancel">Cancelar</button><button class="danger" id="confirmDeleteButton" value="confirm">Eliminar nota</button></div></form></dialog>
+</body></html>
